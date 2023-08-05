@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+.dotted-background {
+  background-image: radial-gradient(#181818 5%, #0000001f 15%);
+  background-color: #000000;
+  background-position: 0 0, 14px 14px;
+  height: 100vh;
+  position: absolute !important;
+  width: 100%;
+}
+
+.result-background {
+  background-image: radial-gradient(#f6f6f6 15%, transparent 15%);
+  background-color: #ffffff;
+  background-position: 0 0, 14px 14px;
+  background-size: 16px 16px;
+  /* height: 30px; */
+  position: absolute !important;
+  width: 100%;
+}
