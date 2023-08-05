@@ -13,7 +13,7 @@ const Hero: React.FC = () => {
           <p className="flex items-center pr-2 gap-1">
             Want to contribute? You can do that
             <Link
-              to="/https://github.com/code-env/motion"
+              to="https://github.com/code-env/motion"
               target="_blank"
               className="text-white underline"
             >
