@@ -3,6 +3,7 @@ import { HTMLAttributes, FC } from "react";
 
 interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   label: string;
+  gradient?: boolean;
   roundedFull?: boolean;
   //   secondary?: boolean;
 }
@@ -10,8 +11,10 @@ interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
 const Button: FC<ButtonProps> = ({
   label,
   roundedFull,
+  gradient,
   //   secondary,
   className,
+
   ...others
 }) => {
   return (
@@ -20,7 +23,9 @@ const Button: FC<ButtonProps> = ({
       className={clsx(
         "py-1 px-4 rounded text-gray-200",
         className,
-        roundedFull && "rounded-full"
+        roundedFull && "rounded-full",
+        gradient &&
+          "bg-gradient-to-tl from-slate-800 via-violet-500 to-zinc-400 "
       )}
     >
       {label}

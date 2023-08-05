@@ -36,6 +36,12 @@ const Hero: React.FC = () => {
           <br />
           visually create and customize animations and transitions with ease.
         </p>
+        <Button
+          label="Get Started for Free"
+          gradient
+          className="w-fit self-center"
+          roundedFull
+        />
       </div>
     </div>
   );
