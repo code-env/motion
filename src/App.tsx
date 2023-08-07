@@ -1,15 +1,29 @@
 import "./App.css";
-import Navbar from "./components/Navbar";
-import Hero from "./components/landingpage/Hero";
+import { Routes, Route } from "react-router-dom";
+import { Playground, Home } from "./pages";
+import { Suspense } from "react";
+import Loading from "./components/ui/loading";
 
 const App = () => {
   return (
-    <div className=" bg-black bg-dotted-spacing-4 bg-dotted-gray-200/5">
-      <div className="flex flex-col gap-20 max-w-7xl mx-auto text-white">
-        <Navbar />
-        <Hero />
-      </div>
-    </div>
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <Suspense fallback={<Loading />}>
+            <Home />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/playground"
+        element={
+          <Suspense fallback={<Loading />}>
+            <Playground />
+          </Suspense>
+        }
+      />
+    </Routes>
   );
 };
 

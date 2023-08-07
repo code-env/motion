@@ -39,7 +39,7 @@ const Hero: React.FC = () => {
         <Button
           label="Get Started for Free"
           gradient
-          className="w-fit self-center"
+          className="w-fit self-center py-2 px-8 text-lg"
           roundedFull
         />
       </div>
