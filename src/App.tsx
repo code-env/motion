@@ -1,6 +1,6 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import { Playground, Home } from "./pages";
+import { Playground, Home, Canvas } from "./pages";
 import { Suspense } from "react";
 import Loading from "./components/ui/loading";
 
@@ -20,6 +20,14 @@ const App = () => {
         element={
           <Suspense fallback={<Loading />}>
             <Playground />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/canvas"
+        element={
+          <Suspense fallback={<Loading />}>
+            <Canvas />
           </Suspense>
         }
       />

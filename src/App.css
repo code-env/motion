@@ -25,3 +25,17 @@
   position: absolute !important;
   width: 100%;
 }
+
+html {
+  touch-action: manipulation;
+}
+
+body {
+  touch-action: pan-x pan-y;
+}
+
+/* For older versions of IE */
+body {
+  -ms-content-zooming: none;
+  -ms-touch-action: manipulation;
+}

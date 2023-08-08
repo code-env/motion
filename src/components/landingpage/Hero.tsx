@@ -32,14 +32,13 @@ const Hero: React.FC = () => {
           />
         </div>
         <p className="text-center text-slate-400">
-          MotionGround is an online playground for Framer Motion that lets you{" "}
-          <br />
+          Motion is an online playground for Framer Motion that lets you <br />
           visually create and customize animations and transitions with ease.
         </p>
         <Button
           label="Get Started for Free"
           gradient
-          className="w-fit self-center py-2 px-8 text-lg"
+          className="w-fit self-center py-2 px-8 text-base font-semibold"
           roundedFull
         />
       </div>
