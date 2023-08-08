@@ -11,9 +11,11 @@
   },
   "dependencies": {
     "clsx": "^2.0.0",
+    "framer-motion": "^10.15.1",
     "lucide-react": "^0.263.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^8.1.2",
     "react-router-dom": "^6.14.2",
     "sass": "^1.64.2",
     "tailwindcss-dotted-background": "^1.1.0"

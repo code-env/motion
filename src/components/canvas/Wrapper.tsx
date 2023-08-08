@@ -2,9 +2,9 @@ import { useMousePosition } from "../../hooks/mousePosition";
 import Header from "./header";
 
 const Wrapper = () => {
-  const mousePosition = useMousePosition();
+  const { x, y } = useMousePosition();
 
-  console.log(mousePosition);
+  // console.log(mousePosition);
 
   // Prevent zooming on mouse wheel event
   window.addEventListener(
@@ -30,10 +30,15 @@ const Wrapper = () => {
   return (
     <div
       className="absolute top-0 left-0
-    w-full"
+    w-full bg-red-500"
     >
       <Header />
-      <div></div>
+      <div>
+        <p>
+          <span>x:{x}</span>
+          <span>x:{y}</span>
+        </p>
+      </div>
     </div>
   );
 };

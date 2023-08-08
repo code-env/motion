@@ -4,7 +4,7 @@ import Preview from "../components/playground/preview/Preview";
 
 const Playground = () => {
   return (
-    <div className="w-full bg-black min-h-screen text-white flex">
+    <div className="w-full bg-[#121212] min-h-screen text-white flex">
       <ActionPanel />
       <Preview />
       <ControlPanel />
