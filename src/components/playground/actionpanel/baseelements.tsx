@@ -1,22 +1,41 @@
 import { useState } from "react";
 // import "../../styles/baseelements.scss";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, LucideIcon } from "lucide-react";
 import { motion } from "framer-motion";
 import { baseElements } from "../../../constants";
 import clsx from "clsx";
+// import baseEL from "../../../redux/slice/baseEL";
+import { useDispatch, useSelector } from "react-redux/es/exports";
+import { RootState } from "../../../redux/store";
+import { changeEl } from "../../../redux/slice/baseEL";
+
+type baseEl = {
+  name: string;
+  icon: LucideIcon;
+};
 
 const BaseElements = () => {
   const [isOpen, setIsOpen] = useState(true);
   const [preview, setPreview] = useState(null);
+  const dispatch = useDispatch();
+
+  const { name: elementName } = useSelector((state: RootState) => state.baseEl);
+
+  console.log(elementName);
+
   // const dispatch = useDispatch();
 
   // const handleDragStart = () => {
   // dispatch(startDrag(name));
   // };
-
+  //
   // const handleDragEnd = () => {
   //   // dispatch(endDrag());
   // };
+
+  const handleClick = (element: baseEl) => {
+    dispatch(changeEl(element.name));
+  };
 
   return (
     <div className="p-2">
@@ -53,7 +72,8 @@ const BaseElements = () => {
                 open: { opacity: 1, y: 0 },
                 closed: { opacity: 0, y: "-10%" },
               }}
-              className="border border-gray-300 w-full flex flex-col gap-2 p-2 items-center justify-center rounded-md cursor-pointer duration-300 hover:bg-violet-500 hover:border-violet-500"
+              onClick={() => handleClick(el)}
+              className="border border-gray-500 w-full flex flex-col gap-2 p-2 items-center justify-center rounded-md cursor-pointer duration-300 hover:bg-violet-500 hover:border-violet-500"
               // onDragEnd={handleDragEnd}
             >
               <el.icon />
