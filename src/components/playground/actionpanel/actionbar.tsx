@@ -7,7 +7,7 @@ const ControlPanel = () => {
   // console.log(active);
 
   return (
-    <div className="play__control">
+    <div className="w-full">
       <div className="control__container">
         <div className="hg__control">
           <div className="control__header">

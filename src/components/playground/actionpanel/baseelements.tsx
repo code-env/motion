@@ -3,40 +3,48 @@ import { useState } from "react";
 import { ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { baseElements } from "../../../constants";
+import clsx from "clsx";
 
 const BaseElements = () => {
   const [isOpen, setIsOpen] = useState(true);
   const [preview, setPreview] = useState(null);
   // const dispatch = useDispatch();
 
-  const handleDragStart = () => {
-    // dispatch(startDrag(name));
-  };
+  // const handleDragStart = () => {
+  // dispatch(startDrag(name));
+  // };
 
-  const handleDragEnd = () => {
-    // dispatch(endDrag());
-  };
+  // const handleDragEnd = () => {
+  //   // dispatch(endDrag());
+  // };
 
   return (
-    <div className="base__elements">
-      <div className={isOpen ? "base__container gap" : "base__container"}>
+    <div className="p-2">
+      <div className="flex flex-col gap-2">
         <motion.div className="base__header">
           <button
-            className={isOpen ? "op" : ""}
+            className={clsx(
+              "flex items-center w-full text-gray-300 text-sm justify-between"
+            )}
             onClick={() => setIsOpen((prev) => !prev)}
           >
             Base Elements
-            <ChevronRight className={`rotate-icon ${isOpen ? "open" : ""}`} />
+            <ChevronRight
+              className={clsx(
+                "duration-300 transition-all",
+                isOpen && "rotate-90"
+              )}
+            />
           </button>
         </motion.div>
-        <motion.nav
+        <motion.div
           initial="closed"
           animate={isOpen ? "open" : "closed"}
           variants={{
             open: { height: "auto" },
             closed: { height: 0 },
           }}
-          className="base__content"
+          className="grid grid-cols-2 gap-2"
         >
           {baseElements.map((el, index) => (
             <motion.div
@@ -45,16 +53,14 @@ const BaseElements = () => {
                 open: { opacity: 1, y: 0 },
                 closed: { opacity: 0, y: "-10%" },
               }}
-              className={!isOpen ? "base active" : "base"}
-              // draggable={el.draggable}
-              // onDragStart={(event) => handleDragStart(event, el.name)}
-              onDragEnd={handleDragEnd}
+              className="border border-gray-300 w-full flex flex-col gap-2 p-2 items-center justify-center rounded-md cursor-pointer duration-300 hover:bg-violet-500 hover:border-violet-500"
+              // onDragEnd={handleDragEnd}
             >
               <el.icon />
-              {el.name}
+              <p className="capitalize font-light"> {el.name}</p>
             </motion.div>
           ))}
-        </motion.nav>
+        </motion.div>
       </div>
       {preview && (
         <div
