@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import baseEL from "./slice/baseEL";
+import imageSlice from "./slice/imageSlice";
 
 export const store = configureStore({
   reducer: {
     baseEl: baseEL,
+    imageState: imageSlice,
   },
 });
 

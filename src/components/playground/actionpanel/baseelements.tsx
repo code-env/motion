@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 import { baseElements } from "../../../constants";
 import clsx from "clsx";
 // import baseEL from "../../../redux/slice/baseEL";
-import { useDispatch, useSelector } from "react-redux/es/exports";
-import { RootState } from "../../../redux/store";
+import { useDispatch } from "react-redux/es/exports";
+// import { RootState } from "../../../redux/store";
 import { changeEl } from "../../../redux/slice/baseEL";
 
 type baseEl = {
@@ -18,10 +18,6 @@ const BaseElements = () => {
   const [isOpen, setIsOpen] = useState(true);
   const [preview, setPreview] = useState(null);
   const dispatch = useDispatch();
-
-  const { name: elementName } = useSelector((state: RootState) => state.baseEl);
-
-  console.log(elementName);
 
   // const dispatch = useDispatch();
 
