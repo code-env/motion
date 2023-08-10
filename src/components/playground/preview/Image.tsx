@@ -35,10 +35,7 @@ const ImageContainer = () => {
           />
         </div>
       ) : (
-        <div
-          {...getRootProps()}
-          className={isDragActive ? "active imagedrop" : "imagedrop"}
-        >
+        <div {...getRootProps()}>
           <input
             {...getInputProps()}
             accept=".jpg,.png,.svg,.gif"
