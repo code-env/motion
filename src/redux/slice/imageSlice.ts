@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 type imageState = {
-  src: string;
+  src: File | null;
 };
 
 const initialState: imageState = {
-  src: "",
+  src: null,
 };
 const imageSlice = createSlice({
   name: "image",

@@ -1,22 +1,60 @@
+import { useDropzone } from "react-dropzone";
+import { useState } from "react";
+import { drophere, imageplaceholder } from "../../../assets";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
-import { imageplaceholder } from "../../../assets";
-import { useDropzone } from "react-dropzone";
 
-const Image = () => {
-  const { src } = useSelector((state: RootState) => state.imageState);
-  const { acceptedFiles, getInputProps, getRootProps } = useDropzone();
+const ImageContainer = () => {
+  const [file, setFile] = useState<File>();
+  const { src: changedImage } = useSelector(
+    (state: RootState) => state.imageState
+  );
 
-  const files = acceptedFiles.map((file, index) => (
-    <img src={URL.createObjectURL(file)} key={index} />
-  ));
+  console.log(changedImage, file);
+
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop: (acceptedFiles) => {
+      acceptedFiles.forEach((file) => {
+        setFile(file);
+      });
+    },
+  });
 
   return (
-    <div {...getRootProps({ className: "dropzone" })}>
-      <input {...getInputProps} className="hidden" />
-      <img src={imageplaceholder} alt="" />
-      <div>{files}</div>
+    <div className="image__container  flex items-center justify-center">
+      {file ? (
+        <div className="w-1/2 ">
+          <img
+            src={
+              changedImage
+                ? URL.createObjectURL(changedImage)
+                : URL.createObjectURL(file)
+            }
+            alt=""
+            className="w-full"
+          />
+        </div>
+      ) : (
+        <div
+          {...getRootProps()}
+          className={isDragActive ? "active imagedrop" : "imagedrop"}
+        >
+          <input
+            {...getInputProps()}
+            accept=".jpg,.png,.svg,.gif"
+            className="hidden"
+          />
+          {isDragActive ? (
+            <img src={drophere} alt="" />
+          ) : (
+            <div className="dropandbrowse">
+              <img src={imageplaceholder} />
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 };
-export default Image;
+
+export default ImageContainer;
