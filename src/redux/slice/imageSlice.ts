@@ -11,7 +11,9 @@ const imageSlice = createSlice({
   name: "image",
   initialState,
   reducers: {
-    changeImageProps: (action, payload) => {},
+    changeImageProps: (state, action) => {
+      state.src = action.payload;
+    },
   },
 });
 

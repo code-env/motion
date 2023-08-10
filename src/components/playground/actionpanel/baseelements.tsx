@@ -84,7 +84,6 @@ const BaseElements = () => {
           onDragOver={(event) => event.preventDefault()}
           onDrop={(event) => {
             event.preventDefault();
-            // Render the dropped element in the preview window
             setPreview(null);
           }}
         >
