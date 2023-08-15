@@ -2,6 +2,7 @@ import { FC } from "react";
 import GradientText from "./ui/GradientText";
 import { useNavbarRoutes } from "../constants";
 import NavItem from "./NavItem";
+import { buttonVariants } from "./ui/Button";
 
 interface NavbarProps {}
 
@@ -24,7 +25,16 @@ const Navbar: FC<NavbarProps> = () => {
             <NavItem name={route.name} path={route.path} key={index} />
           ))}
         </ul>
-        <div>actions</div>
+        <ul className="flex items-center gap-4">
+          <li
+            className={buttonVariants({
+              variant: "default",
+            })}
+          >
+            Sign in
+          </li>
+          <li>Sign up</li>
+        </ul>
       </div>
     </div>
   );
